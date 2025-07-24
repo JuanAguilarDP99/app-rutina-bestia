@@ -114,20 +114,20 @@ export default function App() {
 
                   {/* Animación simple */}
                   <div
-                  className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                  className={`transition-[max-height] duration-500 ease-in-out overflow-hidden ${
                   isExpanded ? "max-h-[600px] mt-2" : "max-h-0"
                   }`}
                   >
-                    <ul className="list-disc pl-5 text-sm">
-                      {exercises.map((ex, i) => (
-                        <li key={i} className="mb-1">
-                          {ex.name}{" "}
-                          <a
-                            href={ex.video}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-600 underline ml-2"
-                          >
+                        <ul className="list-disc pl-5 text-sm">
+                        {exercises.map((ex, i) => (
+                          <li key={i} className="mb-1">
+                            {ex.name}{" "}
+                            <a
+                              href={ex.video}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 underline ml-2"
+                              >
                             Ver
                           </a>
                         </li>
