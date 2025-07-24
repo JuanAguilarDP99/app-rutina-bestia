@@ -114,10 +114,10 @@ export default function App() {
 
                   {/* Animación simple */}
                   <div
-  className={`transition-all duration-500 ease-in-out overflow-hidden ${
-    isExpanded ? "max-h-[500px] mt-2" : "max-h-0"
-  }`}
->
+                  className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                  isExpanded ? "max-h-[600px] mt-2" : "max-h-0"
+                  }`}
+                  >
                     <ul className="list-disc pl-5 text-sm">
                       {exercises.map((ex, i) => (
                         <li key={i} className="mb-1">
