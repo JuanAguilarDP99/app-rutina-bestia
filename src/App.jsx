@@ -46,7 +46,7 @@ const dailyTips = [
 ];
 
 export default function App() {
-  const [checkedDays, setCheckedDays] = useState<string[]>([]);
+  const [checkedDays, setCheckedDays] = useState([]);
   const [progress, setProgress] = useState(0);
   const [tipIndex, setTipIndex] = useState(0);
 
