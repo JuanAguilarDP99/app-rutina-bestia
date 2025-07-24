@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Card, CardContent } from "./components/ui/card";
+import { Button } from "./components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs";
+import { Checkbox } from "./components/ui/checkbox";
 import { Bell, Dumbbell, Utensils, CalendarCheck, BookOpen, PlayCircle } from "lucide-react";
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "./components/ui/progress";
 
 const workouts = [
   {
@@ -46,7 +46,7 @@ const dailyTips = [
 ];
 
 export default function App() {
-  const [checkedDays, setCheckedDays] = useState([]);
+  const [checkedDays, setCheckedDays] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
   const [tipIndex, setTipIndex] = useState(0);
 
@@ -170,3 +170,4 @@ export default function App() {
     </div>
   );
 }
+
