@@ -156,9 +156,9 @@ export default function App() {
       <TabsContent value="tip">
         <Card><CardContent className="p-4">💡 Tip del día: "No es magia, es constancia."</CardContent></Card>
       </TabsContent>
-    </Tabs>
-  </div>
-);
-
+      </Tabs>
+    </div>
+  );
+}
 
 
