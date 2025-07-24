@@ -80,7 +80,7 @@ export default function App() {
         <TabsContent value="rutina">
           {workouts.map((day, i) => (
             <Card key={i} className="mb-4">
-              <CardContent>
+              <CardContent className="bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
                 <div className="flex justify-between items-center mb-2">
                   <h2 className="text-lg font-semibold">{day.day}: {day.title}</h2>
                   <Checkbox
@@ -111,7 +111,7 @@ export default function App() {
         <TabsContent value="alimentacion">
           {meals.map((meal, i) => (
             <Card key={i} className="mb-4">
-              <CardContent>
+              <CardContent className="bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
                 <h2 className="text-lg font-semibold mb-2">{meal.title}</h2>
                 <ul className="list-disc ml-4">
                   {meal.items.map((item, j) => <li key={j}>{item}</li>)}
@@ -123,7 +123,7 @@ export default function App() {
 
         <TabsContent value="progreso">
           <Card className="mb-4">
-            <CardContent>
+            <CardContent className="bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
               <h2 className="text-lg font-semibold mb-2">Registro Semanal</h2>
               <p>Agrega tus medidas cada domingo:</p>
               <ul className="list-disc ml-4 mt-2">
@@ -144,7 +144,7 @@ export default function App() {
 
         <TabsContent value="glosario">
           <Card>
-            <CardContent>
+            <CardContent className="bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
               <h2 className="text-lg font-semibold mb-2">Términos Técnicos</h2>
               <ul className="list-disc ml-4">
                 <li><strong>Drop set:</strong> Bajar el peso y seguir sin descanso.</li>
@@ -159,7 +159,7 @@ export default function App() {
 
         <TabsContent value="tip">
           <Card>
-            <CardContent>
+            <CardContent className="bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
               <h2 className="text-lg font-semibold mb-2">Consejo Diario</h2>
               <p>{dailyTips[tipIndex]}</p>
             </CardContent>
