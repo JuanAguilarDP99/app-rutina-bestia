@@ -19,7 +19,6 @@ const workouts = [
       { name: "Fondos", video: "https://www.youtube.com/watch?v=2z8JmcrW-As" }
     ]
   },
-  // Puedes extender más días con sus respectivos videos...
 ];
 
 const meals = [
@@ -170,4 +169,5 @@ export default function App() {
     </div>
   );
 }
+
 
