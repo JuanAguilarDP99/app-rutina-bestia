@@ -4,14 +4,39 @@ import { Checkbox } from "./components/ui/checkbox";
 import { Progress } from "./components/ui/progress";
 import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 const routineData = {
-  day1: ["Press de banca con barra", "Press inclinado con mancuernas", "Fondos en paralelas"],
-  day2: ["Remo con barra", "Jalón al pecho", "Peso muerto"],
-  day3: ["Elevaciones laterales", "Press militar", "Encogimientos con mancuernas"],
-  day4: ["Curl con barra", "Curl martillo", "Curl concentrado"],
-  day5: ["Extensiones de tríceps", "Press cerrado", "Patada de tríceps"],
-  day6: ["Circuito full body con mancuernas", "Burpees", "Planchas"]
+  day1: [
+    { name: "Press de banca con barra", video: "https://www.youtube.com/watch?v=SCVCLChPQFY" },
+    { name: "Press inclinado con mancuernas", video: "https://www.youtube.com/watch?v=8iPEnn-ltC8" },
+    { name: "Fondos en paralelas", video: "https://www.youtube.com/watch?v=0AUGkch3tzc" },
+  ],
+  day2: [
+    { name: "Remo con barra", video: "https://www.youtube.com/watch?v=vT2GjY_Umpw" },
+    { name: "Jalón al pecho", video: "https://www.youtube.com/watch?v=CAwf7n6Luuc" },
+    { name: "Peso muerto", video: "https://www.youtube.com/watch?v=ytGaGIn3SjE" },
+  ],
+  day3: [
+    { name: "Elevaciones laterales", video: "https://www.youtube.com/watch?v=kDqklk1ZESo" },
+    { name: "Press militar", video: "https://www.youtube.com/watch?v=B-aVuyhvLHU" },
+    { name: "Encogimientos con mancuernas", video: "https://www.youtube.com/watch?v=6TSP1TRMUzs" },
+  ],
+  day4: [
+    { name: "Curl con barra", video: "https://www.youtube.com/watch?v=kwG2ipFRgfo" },
+    { name: "Curl martillo", video: "https://www.youtube.com/watch?v=zC3nLlEvin4" },
+    { name: "Curl concentrado", video: "https://www.youtube.com/watch?v=ul2zP73L7j4" },
+  ],
+  day5: [
+    { name: "Extensiones de tríceps", video: "https://www.youtube.com/watch?v=vB5OHsJ3EME" },
+    { name: "Press cerrado", video: "https://www.youtube.com/watch?v=JHDK0pZ5YH4" },
+    { name: "Patada de tríceps", video: "https://www.youtube.com/watch?v=6SSIxhh0Aqs" },
+  ],
+  day6: [
+    { name: "Circuito full body con mancuernas", video: "https://www.youtube.com/watch?v=aRYn1yxQJ_Y" },
+    { name: "Burpees", video: "https://www.youtube.com/watch?v=dZgVxmf6jkA" },
+    { name: "Planchas", video: "https://www.youtube.com/watch?v=pSHjTRCQxIw" },
+  ],
 };
 
 const TOTAL_WEEKS = 5;
@@ -71,20 +96,41 @@ export default function App() {
               const key = `Semana${currentWeek}-Dia${dayIndex}`;
               const isChecked = checkedDays[currentWeek]?.includes(dayIndex);
               const exercises = routineData[`day${dayIndex + 1}`] || [];
+              const isExpanded = expandedDay === dayIndex;
+
               return (
-                <Card key={key} className="cursor-pointer" onClick={() => setExpandedDay(expandedDay === dayIndex ? null : dayIndex)}>
+                <Card key={key} className="cursor-pointer" onClick={() => setExpandedDay(isExpanded ? null : dayIndex)}>
                   <CardContent className="p-4 bg-white text-black rounded-xl shadow-md">
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-semibold">Día {dayIndex + 1}</h3>
                       <Checkbox checked={isChecked} onCheckedChange={() => handleCheck(currentWeek, dayIndex)} />
                     </div>
-                    {expandedDay === dayIndex && (
-                      <ul className="mt-2 list-disc pl-5 text-sm">
-                        {exercises.map((ex, i) => (
-                          <li key={i}>{ex}</li>
-                        ))}
-                      </ul>
-                    )}
+
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.ul
+                          className="mt-2 list-disc pl-5 text-sm"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {exercises.map((ex, i) => (
+                            <li key={i} className="mb-1">
+                              {ex.name}{" "}
+                              <a
+                                href={ex.video}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 underline ml-2"
+                              >
+                                Ver
+                              </a>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
                   </CardContent>
                 </Card>
               );
