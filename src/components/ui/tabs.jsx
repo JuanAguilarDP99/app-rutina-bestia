@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Tabs({ children, defaultValue, className }) {
   return (
     <div className={className}>
