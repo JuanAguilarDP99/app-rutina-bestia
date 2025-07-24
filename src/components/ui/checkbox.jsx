@@ -5,8 +5,8 @@ export function Checkbox({ checked, onCheckedChange }) {
     <input
       type="checkbox"
       checked={checked}
-      onChange={() => onCheckedChange(!checked)}
-      className="w-5 h-5 text-blue-600 rounded"
+      onChange={(e) => onCheckedChange(e.target.checked)}
+      className="w-5 h-5 accent-blue-600"
     />
   );
 }
