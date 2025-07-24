@@ -1,3 +1,5 @@
+import React from "react";
+
 export function Progress({ value }) {
   return (
     <div className="w-full bg-gray-300 rounded-full h-4">
